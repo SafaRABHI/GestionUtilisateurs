@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="/bootstrap.min.css">
+    <script src="/jquery.js"></script>
+    <script src="/bootstrap.min.js"></script>
+    <title>Spring Boot Application</title>
+</head>
+
+<body>
+    <div class="container my-5 center_div">
+        <h2>Ajouter utilisateur</h2>
+        <hr>
+        <div class="row">
+            <div class="col-md-6 center_div">
+
+                <form action="#" th:action="@{/adduser}" th:object="${utitlisateur}" method="post">
+
+                    <div class="form-group">
+                        <label>
+                            <B>Nom</B>
+                        </label>
+                        <input type="text" class="form-control" th:field="*{nom}" />
+                        <span class="error" th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}">Error Nom</span>
+                    </div>
+
+                
+                    <div class="form-group">
+                        <label>
+                            <B>Prenom</B>
+                        </label>
+                        <input type="text" class="form-control" th:field="*{prenom}" />
+                        <span class="error" th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}">Error Prenom</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <B>Email</B>
+                        </label>
+                        <input type="text" class="form-control" th:field="*{mail}" />
+                        <span class="error" th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}">Error Prenom</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>
+                            <B>Age</B>
+                        </label>
+                        <input type="number" class="form-control" th:field="*{age}" />
+                        <span class="error" th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Error Id</span>
+                    </div>
+
+                    <button type="submit" class="btn btn-success">Add User</button>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
